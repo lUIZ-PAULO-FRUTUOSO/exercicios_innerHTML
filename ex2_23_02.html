@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora eleição</title>
+</head>
+<body>
+    quantos votos o "candidato A" teve na eleição:
+    <input type="number" id="ipt_cand_a">
+    <br>
+    quantos votos o "candidato B" teve na eleição:
+    <input type="number" id="ipt_cand_b">
+    <br> 
+    quantos votos brancos teve na eleição:
+    <input type="number" id="ipt_brancos">
+    <br>
+    quantos votos nulos teve na eleição:
+    <input type="number" id="ipt_nulos">
+    <br>
+    <button onclick="resultEleicao()">
+        resultado da eleição
+    </button>
+    <br>
+    <div id="div_resultEleicao">
+
+    </div>
+
+
+
+
+</body>
+</html>
+<script>
+    function resultEleicao(){
+        var cand_a = Number(ipt_cand_a.value);
+        var cand_b= Number(ipt_cand_b.value);
+        var brancos = Number(ipt_brancos.value);
+        var nulos = Number(ipt_nulos.value);
+        var invalidos = brancos + nulos
+        var total = cand_a+cand_b+brancos+nulos;
+        var cand_a_percent = (cand_a/total)*100
+        var cand_b_percent = (cand_b/total)*100
+        var invalidos_percent = (invalidos/total)*100
+
+
+
+        div_resultEleicao.innerHTML = `
+        <bold> Total de votos:</bold> ${total}<br>
+        <bold> Candidato A: ${cand_a_percent}% (${cand_a} votos)</bold><br> 
+        <bold> Candidato B:${cand_b_percent}% (${cand_b} votos)</bold><br>
+        <bold> Inválidos${invalidos_percent}% (${invalidos} votos) </bold><br>
+        `
+
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
