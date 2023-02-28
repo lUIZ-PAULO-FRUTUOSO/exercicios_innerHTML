@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vale-transporte</title>
+</head>
+<body>
+    valor da passagem: <input type="number" id="ipt_val_passagem">
+    <br>
+    quantas viagens são feitas em um mês (em km): <input type="number" id="ipt_qtd_viagens">
+    <br>
+    distância de seu trabalho a sua casa: <input type="number" id="ipt_distancia"> 
+    <br>
+    <button onclick="calcVT()">
+        Calcular VT
+    </button>
+    <div id="div_calcVT">
+
+    </div>
+</body>
+</html>
+<script>
+    function calcVT(){
+        var valPassagem = Number(ipt_val_passagem.value);
+        var qtdViagens = Number(ipt_qtd_viagens.value);
+        var distancia = Number(ipt_distancia.value);
+        var cotacao_app = (distancia * 0.75); //parentesis apenas para indicar um calculo
+        var viagensApp = (qtdViagens*10)/100;
+        var viagensOnibus = (qtdViagens - viagensApp);
+        var cotacaoOnibus = (valPassagem * viagensOnibus);
+        var valTotal = (cotacao_app + cotacaoOnibus);
+
+        div_calcVT.innerHTML = `
+        você vai gastar R$${valTotal} por mês com transporte <br> sendo R$${cotacaoOnibus} em ${viagensOnibus} viagens de Ônibus e ${cotacao_app} em ${viagensApp} viagens com aplicativo
+        `
+        
+        
+    }
+</script>
